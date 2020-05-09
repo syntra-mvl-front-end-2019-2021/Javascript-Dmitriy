@@ -13,33 +13,67 @@ for ( let i = 1; i < array.length; i++)
  }
  return largestVal;
  }
-console.log(getLargestItemInArray([1,20,65,874,2,6,5,789,521]));
+
+
 
 // Reverse order of array, e.g. [1,2,3] → [3,2,1]
 function reverseArray(anArray) 
 {
-  for (let i = anArray.length-1;i>=0;i--){
-// return anArray.reverse
+  let rev = []
+  for (let i = anArray.length-1;i>=0;i--)
+  {
+    rev.push(anArray[i])
+  }
+return rev
 }
-return anArray
-}
-console.log(reverseArray([1,20,65,874,2,6,5,789,521]));
+
+
+
+
 
 // Make a sum of all elements, e.g. [1,2,3] → 6
 function arraySum(anArray) {
+    
+        let x = 0;
 
+        for (i=0; i < anArray.length; ++i)
+            {
+                x += anArray[i];
+            }
+            return x;
+    
 }
+
 
 // Make a string of the first letter of each element of array, e.g. ['Dog', 'cat', 'snake'] → 'Dcs'
 function stringOfFirstLetters(anArray) {
 
+  let x = '';
+  for ( let i = 0; i < anArray.length; i++)   
+{
+ x += anArray[i].substring(0,1)
+
+}
+return x
 }
 
 // Combines two arrays by alternatingly taking elements, e.g. ['a','b','c'], [1,2,3] → ['a',1,'b',2,'c',3].
-function combineArrays(arrayOne, arrayTwo) {
+function combineArrays(arrayOne, arrayTwo)
+{
+  let x = []
+
+  for (const arrayOne of arrayOne)
+   {
+    for (const arrayTwo of arrayTwo)
+     { 
+
+        x.push(arrayOne +  arrayTwo)
 
 }
 
+}
+return x
+}
 // Takes a number and returns a list of its digits. e.g. 2342 → [2,3,4,2]
 function numberToDigitArray(aNumber) {
 
