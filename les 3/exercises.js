@@ -61,19 +61,23 @@ return x
 function combineArrays(arrayOne, arrayTwo)
 {
   let x = []
+  let length = Math.max(arrayOne.length,arrayTwo.length)
+  for ( let i = 0; i < length; ++i)
+    {
 
-  for (const arrayOne of arrayOne)
-   {
-    for (const arrayTwo of arrayTwo)
-     { 
+   if(i < arrayOne.length  )
+    {x.push(arrayOne[i])}
+   else if  (i < arrayTwo.length)
+   { x.push(arrayTwo[i])}
+   else()
+      {}
+  
+  }
+  return x
+    }
+    
 
-        x.push(arrayOne +  arrayTwo)
 
-}
-
-}
-return x
-}
 // Takes a number and returns a list of its digits. e.g. 2342 → [2,3,4,2]
 function numberToDigitArray(aNumber) {
 
