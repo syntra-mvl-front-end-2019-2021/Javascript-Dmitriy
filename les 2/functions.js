@@ -1,31 +1,40 @@
-let a   =   10;
-let b   =   33;
-function sum (a,b){
-    let sumVal = a+b;
+let a = 10;
+let b = 33;
+
+function sum(a, b) {
+    let sumVal = a + b;
+
     return sumVal;
 }
 
-let eleven  =sum(5,  6);
+let eleven = sum(5, 6); // 11
 
-function test(){
-    let a = 15;
-        b = 16;
-    console.log(a);
+
+function test() {
+    let a = 15; 
+    b = 16;
+
+    console.log(a); // references a on line 14
     console.log(b);
-
-
 }
-test();
-console.log(a);
+
+console.log(test());
+
+console.log(a); // references a on line 1
 console.log(b);
 
-function doSomethingWithtwo(something){
+function doSomethingWithTwo(something) {
     let result = something(2);
-    console.log(result)
+    console.log(result);
 }
 
-function plusFour(num){
-    return num + 4
+function plusFour(num) {
+    return num + 4;
 }
 
-doSomethingWithtwo(plusFour);
+doSomethingWithTwo(plusFour);
+
+// function doSomethingWithTwo(plusFour) {
+//     let result = plusFour(2);
+//     console.log(result);
+// }

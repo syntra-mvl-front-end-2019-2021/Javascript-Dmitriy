@@ -48,7 +48,7 @@ function arraySum(anArray) {
 // Make a string of the first letter of each element of array, e.g. ['Dog', 'cat', 'snake'] → 'Dcs'
 function stringOfFirstLetters(anArray) {
 
-  let x = '';
+  let x = ''
   for ( let i = 0; i < anArray.length; i++)   
 {
  x += anArray[i].substring(0,1)
@@ -61,16 +61,16 @@ return x
 function combineArrays(arrayOne, arrayTwo)
 {
   let x = []
+
   let length = Math.max(arrayOne.length,arrayTwo.length)
   for ( let i = 0; i < length; ++i)
     {
 
-   if(i < arrayOne.length  )
-    {x.push(arrayOne[i])}
-   else if  (i < arrayTwo.length)
-   { x.push(arrayTwo[i])}
-   else()
-      {}
+   if(i < arrayOne.length)  // if == true --> voert de if uit/ if !== true voert if niet uit en gaat hij naar de volgende if
+      {x.push(arrayOne[i])}
+   if (i < arrayTwo.length) 
+     {x.push(arrayTwo[i])}
+   
   
   }
   return x
@@ -81,6 +81,9 @@ function combineArrays(arrayOne, arrayTwo)
 // Takes a number and returns a list of its digits. e.g. 2342 → [2,3,4,2]
 function numberToDigitArray(aNumber) {
 
+  let anArray = Array.from(String(aNumber),Number)
+
+  return anArray;
 }
 
 // Translates a text to Pig Latin.
@@ -92,8 +95,38 @@ function numberToDigitArray(aNumber) {
 // console.log(aString.split(' '));
 
 function translateToPigLating(aString) {
+  
+  let x = ''
+  let anArray = aString.split(' ') 
+
+  for ( let i = 0; i < anArray.length; ++i)   
+{
+  
+    if(i!==anArray.length-1)
+
+    {
+      x +=  anArray[i].substring(1) + anArray[i].substring(0,1) + 'ay '
+
+    }
+
+    else{
+
+      x +=  anArray[i].substring(1) + anArray[i].substring(0,1) + 'ay'
+
+    }
+
+
+
+
+  
+   
+ 
+
 
 }
+return x
+}
+
 
 // Converts English text to Morse code.
 // https://en.wikipedia.org/wiki/Morse_code#/media/File:International_Morse_Code.svg
