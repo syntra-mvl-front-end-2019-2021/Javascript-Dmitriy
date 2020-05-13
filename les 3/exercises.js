@@ -1,7 +1,7 @@
 // Return the largest element of array (all elements will be numbers), e.g. [1,2,3] → 3
  function  getLargestItemInArray( array )
  {
-
+  
   let largestVal = array[0] 
 
 for ( let i = 1; i < array.length; i++)   
@@ -12,8 +12,10 @@ for ( let i = 1; i < array.length; i++)
    }
  }
  return largestVal;
+
  }
 
+ 
 
 
 // Reverse order of array, e.g. [1,2,3] → [3,2,1]
@@ -97,7 +99,8 @@ function numberToDigitArray(aNumber) {
 function translateToPigLating(aString) {
   
   let x = ''
-  let anArray = aString.split(' ') 
+  let test = aString.toLowerCase()
+  let anArray = test.split(' ') 
 
   for ( let i = 0; i < anArray.length; ++i)   
 {
@@ -105,7 +108,7 @@ function translateToPigLating(aString) {
     if(i!==anArray.length-1)
 
     {
-      x +=  anArray[i].substring(1) + anArray[i].substring(0,1) + 'ay '
+      x +=   anArray[i].substring(1) + anArray[i].substring(0,1) + 'ay '
 
     }
 
@@ -115,6 +118,7 @@ function translateToPigLating(aString) {
 
     }
 
+        
 
 
 
@@ -150,13 +154,244 @@ return x
 //         break;    
 // }
 
-function translateToMorse(aString) {
+function   translateToMorse(aString){
+  
+    x=''
+    let array = aString.split('')
+    let anArray = array.join("|")
+    for ( let i = 0; i < anArray.length; i++)   
+    {
+      if (i > 0 && anArray[i - 1] == ' ') {
+
+      } else {
+          x += tweedefunctie(anArray[i])
+      }
+    }
+    
+     x += '|'
+    return x
+}
+
+function tweedefunctie(letter)
+{
+  switch (letter)
+  { 
+      case 'a': 
+          return "*_"; 
+          break;
+      case 'b': 
+          return "_***"; 
+          break;
+      case 'c': 
+          return "_*_*"; 
+          break;
+      case 'd': 
+          return "_**"; 
+          break;
+      case 'e': 
+          return "*"; 
+          break;
+      case 'f': 
+          return "**_*"; 
+          break;
+      case 'g': 
+          return "__*"; 
+          break;
+      case 'h': 
+      case 'H':
+          return "****"; 
+          break;
+      case 'i': 
+          return "**"; 
+          break;
+      case 'j': 
+      case 'J': 
+          return "*___"; 
+          break;
+      case 'k': 
+          return "_*_"; 
+          break;
+      case 'l': 
+          return "*_**"; 
+          break;
+      case 'm': 
+          return "__"; 
+          break;
+      case 'n': 
+          return "_*"; 
+          break;
+      case 'o': 
+          return "___"; 
+          break;
+      case 'p': 
+          return "*__*"; 
+          break;
+      case 'q': 
+          return "__*_"; 
+          break;
+      case 'r': 
+          return "*_*"; 
+          break;
+      case 's': 
+      case 'S': 
+
+          return "***";
+          break;
+      case 't': 
+          return "_"; 
+          break;
+      case 'u': 
+          return "**_"; 
+          break;
+      case 'v': 
+          return "***_"; 
+          break;
+      case 'w': 
+      case 'W': 
+          return "*__"; 
+          break;
+      case 'x': 
+          return "_**_"; 
+          break;
+      case 'y': 
+          return "_*__"; 
+          break;
+      case 'z': 
+          return "__**"; 
+          break;
+     case '|':
+       return  '|';
+       break;
+       case ' ':
+        return ' ';
+        break;
+          
+} 
 
 }
+
+
+
+
+
+
+
+
 
 // Write a more advanced version of the previous function
 // Where the unnecessary | is omitted
 // e.g. 'Hello World' → '****|*|*_**|*_**|___ *__|___|*_*|*_**|_**'\
 function translateToMorseFancy(aString) {
+    
+    x=''
+    let array = aString.split('')
+    let anArray = array.join("|") 
+    for ( let i = 0; i < anArray.length; i++)   
+    {
+      if (i > 0 && anArray[i - 1] == ' ') {
 
+      } else {
+          x += tweedefunctie(anArray[i])
+      }
+    }
+    
+     x += '|'
+    return x
+}
+
+function tweedefunctie(letter)
+{
+  switch (letter)
+  { 
+      case 'a': 
+          return "*_"; 
+          break;
+      case 'b': 
+          return "_***"; 
+          break;
+      case 'c': 
+          return "_*_*"; 
+          break;
+      case 'd': 
+          return "_**"; 
+          break;
+      case 'e': 
+          return "*"; 
+          break;
+      case 'f': 
+          return "**_*"; 
+          break;
+      case 'g': 
+          return "__*"; 
+          break;
+      case 'h': 
+      case 'H':
+          return "****"; 
+          break;
+      case 'i': 
+          return "**"; 
+          break;
+      case 'j': 
+      case 'J': 
+          return "*___"; 
+          break;
+      case 'k': 
+          return "_*_"; 
+          break;
+      case 'l': 
+          return "*_**"; 
+          break;
+      case 'm': 
+          return "__"; 
+          break;
+      case 'n': 
+          return "_*"; 
+          break;
+      case 'o': 
+          return "___"; 
+          break;
+      case 'p': 
+          return "*__*"; 
+          break;
+      case 'q': 
+          return "__*_"; 
+          break;
+      case 'r': 
+          return "*_*"; 
+          break;
+      case 's': 
+      case 'S': 
+
+          return "***";
+          break;
+      case 't': 
+          return "_"; 
+          break;
+      case 'u': 
+          return "**_"; 
+          break;
+      case 'v': 
+          return "***_"; 
+          break;
+      case 'w': 
+      case 'W': 
+          return "*__"; 
+          break;
+      case 'x': 
+          return "_**_"; 
+          break;
+      case 'y': 
+          return "_*__"; 
+          break;
+      case 'z': 
+          return "__**"; 
+          break;
+     case '|':
+       return  '|';
+       break;
+       case ' ':
+        return ' ';
+        break;
+          
+} 
 }
