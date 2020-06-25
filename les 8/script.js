@@ -93,8 +93,8 @@ function initGame() {
   winOrLoseContainer.innerHTML = "";
   // remove success and failed classes from .letter
 
-  letter.forEach(function (e) {
-    e.classList.remove("success", "failed");
+  letter.forEach(function (l) {
+    l.classList.remove("success", "failed");
   });
   console.log(gameState.word.split(""));
 }
@@ -128,8 +128,8 @@ function clickLetter(letter) {
   gameState.turn++
 }
 
-letter.forEach(function (buttons) {
-  buttons.addEventListener("click", clickLetter);
+letter.forEach(function (letterbtn) {
+  letterbtn.addEventListener("click", clickLetter);
 });
 
 function winOrLose() {
