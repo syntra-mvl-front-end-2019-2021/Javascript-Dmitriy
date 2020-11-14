@@ -21,7 +21,7 @@ body {
   background-color: rgba(66, 203, 246, 1);
 }
 #title__header {
-  margin: 0;
+  margin: 0; 
   padding: 5rem 0;
   font-size: 5rem;
 }
