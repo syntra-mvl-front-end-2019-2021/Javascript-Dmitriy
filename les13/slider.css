@@ -1,38 +1,50 @@
-#slider{
-  max-width: 90%;
-  height: 300px;
-  position: relative;
+
+#slider {
+  overflow: hidden;
+  display: block;
+  width: 1000px;
+  height: 1000px;
+  position: absolute;
   margin: auto;
 
-
 }
-.item .image {
+
+#slider img {
+  width: 1000px;
   object-fit: scale-down;
-  width: 100%;
-  height: 300px;
-}
-.buttonContainer{
-  display: flex;
+  
 
 }
- .previous,  .next {
+
+.container {
+  width: 99999px;
+  position: absolute;
+}
+
+.previous,
+.next {
   cursor: pointer;
   position: absolute;
   top: 50%;
   width: auto;
   margin-top: -22px;
   padding: 16px;
-  color: white;
+  color: black;
   font-weight: bold;
   font-size: 16px;
   border-radius: 0 3px 3px 0;
 }
- .next {
-  right: 0 ;
-  border-radius: 3px 0 0 3px;
+
+.next {
+  border-left: 20px solid black;
+  right: 20px;
 }
 
-#slider .item {
-  animation-name: fade;
-  animation-duration: 1.5s;
+.previous {
+  border-right: 20px solid black;
+  left: 20px;
+}
+
+.hide {
+  display: none;
 }

@@ -1,0 +1,42 @@
+*{
+  padding:0;
+  margin:0;
+  box-sizing: border-box;
+
+
+
+}
+body{
+  background: #ffcba4;
+  display: flex;
+
+}
+#measures{
+  height: 10vh;
+}
+
+
+input[type=number]{
+  background: #ffcba4;
+  color: #8BCACA;
+  font-size: 10em;
+  text-align: center;
+  border: 0;
+  font-family: sans-serif;
+
+}
+ select{
+  background: #ffcba4;
+  color: #D4F4EC;
+  font-size: 4em;
+  border: 0;
+  font-family: sans-serif;
+  
+
+}
+
+/* #years{
+  height: 100%;
+  margin-top: 10vh ;
+
+} */
