@@ -23,12 +23,13 @@ input[type=number]{
   text-align: center;
   border: 0;
   font-family: sans-serif;
+  width: 90%;
 
 }
  select{
   background: #ffcba4;
   color: #D4F4EC;
-  font-size: 4em;
+  font-size: 2rem;
   border: 0;
   font-family: sans-serif;
   
