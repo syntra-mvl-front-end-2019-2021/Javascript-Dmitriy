@@ -147,8 +147,7 @@ select {
 }
 
 
-.show{
-  display: block;
+#show{
   display: flex;
   justify-content: center;
   align-items: center;
@@ -164,4 +163,8 @@ select {
 }
 .complete-btn {
   background: rgb(11, 212, 162);
+}
+
+#hide{
+  display: none;
 }

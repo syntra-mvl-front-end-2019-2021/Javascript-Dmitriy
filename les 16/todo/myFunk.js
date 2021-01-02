@@ -1,12 +1,12 @@
 const todoInput = document.querySelector(".todo-input");
-// const todoUpdate = document.querySelector(".todo-update");
+const todoUpdate = document.querySelector(".todo-update");
 const todoButton = document.querySelector(".todo-button");
 const todoList = document.querySelector(".todo-list");
 const filterOption = document.querySelector(".filter-todo");
 let ul_list = document.getElementById('ul-list')
 let btn_container = document.getElementById('todo-container')
 const update = document.querySelector(".update-form");
-const updateButton = document.createElement("button");
+
 
 
 // https://docs.directus.io/api/items.html#the-item-object
@@ -138,11 +138,21 @@ function btnPressed(e) {
     // e.target.parentElement.remove();
     const todo = item.parentElement;
     console.log(todo)
+    update.setAttribute("id", "hide");
+
     todo.classList.add("hide");
+
     let id = e.target.dataset.id
     deleteTodo(id);
   }
+  if (item.classList[0] === "edit-btn") {
+    // e.target.parentElement.remove();
+    update.setAttribute("id", "show");
 
+    ul_list.classList.add("hide");
+
+  
+  }
 
    
 }
@@ -188,6 +198,7 @@ function createList(id, task)
   todoList.appendChild(todoDiv).append(trashButton);
 
  //!update button
+ const updateButton = document.createElement("button");
 
   updateButton.innerHTML = `<i class="far fa-edit"></i>`;
   updateButton.classList.add("edit-btn");
@@ -203,6 +214,7 @@ function addTodo() {
     postNewTodo(todoInput.value);
     todoInput.value = '';
     fetchAllTodos();
+    
   } else {
     alert('ejejejejeje iets invoeren he idioot!')
   }
@@ -221,6 +233,8 @@ completedButton.classList.add("complete-btn");
 update.appendChild(completedButton);
 
   update.classList.toggle("show");
+  fetchAllTodos()
+
 }
 
 
@@ -231,4 +245,4 @@ update.appendChild(completedButton);
 fetchAllTodos()
 todoButton.addEventListener("click", addTodo)
 ul_list.addEventListener("click", btnPressed);
-updateButton.addEventListener("click",ToggleThatNav);
+ul_list.addEventListener("click",ToggleThatNav);
