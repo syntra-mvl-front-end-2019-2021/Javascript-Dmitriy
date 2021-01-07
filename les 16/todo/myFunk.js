@@ -6,8 +6,11 @@ const filterOption = document.querySelector(".filter-todo");
 let ul_list = document.getElementById('ul-list')
 let btn_container = document.getElementById('todo-container')
 const update = document.querySelector(".update-form");
+const completedButton = document.getElementById("completed-button");
 
+let todoObj = {
 
+};
 
 // https://docs.directus.io/api/items.html#the-item-object
 const URL = 'https://phpstack-224488-1624928.cloudwaysapps.com/_/items/todo'
@@ -113,26 +116,20 @@ function deleteTodo(id) {
       console.error(error)
     });
 }
-// postNewTodo();
-// updateTodo(2);
-// deleteTodo(3);
-// fetchAllTodos();
-// function btnPressed(event) {
-//   let btn = event.target.matches('button')
-
-//   if (btn === true) {
-// let id = event.target.dataset.id
-// console.log(id)
 
 
-//     deleteTodo(id);
-//     fetchAllTodos()
-//   }
+function setup() {
+
+  todoArr = '';
+  todoArr = fetchAllTodos()
+
+  return todoArr
 
 
-// }
+}
 
 function btnPressed(e) {
+
   const item = e.target;
   if (item.classList[0] === "trash-btn") {
     // e.target.parentElement.remove();
@@ -150,13 +147,22 @@ function btnPressed(e) {
     update.setAttribute("id", "show");
 
     ul_list.classList.add("hide");
+    completedButton.addEventListener("click", () => {
+      updateDat(e.target.dataset.id);
 
-  
+      // fetchAllTodos()
+
+    })
   }
 
-   
-}
 
+}
+// updateTodo
+function updateDat(id) {
+
+  updateTodo(id, todoUpdate.value);
+
+}
 
 
 
@@ -173,19 +179,15 @@ function outputData(result) {
   }
 }
 
-function createList(id, task)
-{
-  console.log(task)
-  console.log(id)
+function createList(id, task) {
   // creating elements with id's
   const todoDiv = document.createElement("div");
   todoDiv.classList.add("todo");
-
   const li = document.createElement("li");
   li.innerText = task;
   li.classList.add("todo-item");
   todoDiv.appendChild(li);
- 
+
 
   //!trashbutton
 
@@ -197,8 +199,8 @@ function createList(id, task)
   trashButton.setAttributeNode(data_id)
   todoList.appendChild(todoDiv).append(trashButton);
 
- //!update button
- const updateButton = document.createElement("button");
+  //!update button
+  const updateButton = document.createElement("button");
 
   updateButton.innerHTML = `<i class="far fa-edit"></i>`;
   updateButton.classList.add("edit-btn");
@@ -213,36 +215,27 @@ function addTodo() {
   if (todoInput.value != '') {
     postNewTodo(todoInput.value);
     todoInput.value = '';
-    fetchAllTodos();
-    
+
   } else {
     alert('ejejejejeje iets invoeren he idioot!')
   }
-
+  fetchAllTodos()
 }
+
 
 // toggle the update
 
 
 function ToggleThatNav() {
-    //!complete button
-
-const completedButton = document.createElement("button");
-completedButton.innerHTML = `<i class="fas fa-check"></i>`;
-completedButton.classList.add("complete-btn");
-update.appendChild(completedButton);
-
   update.classList.toggle("show");
-  fetchAllTodos()
-
 }
-
 
 
 
 
 
 fetchAllTodos()
+
 todoButton.addEventListener("click", addTodo)
 ul_list.addEventListener("click", btnPressed);
-ul_list.addEventListener("click",ToggleThatNav);
+ul_list.addEventListener("click", ToggleThatNav);
