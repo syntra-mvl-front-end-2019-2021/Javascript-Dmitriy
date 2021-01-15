@@ -1,28 +1,32 @@
 const App = {
-data(){
-  return {
-    name:'test 2',
-    count: 1,
-    containerClasses:'red',
-    newTodo: '',
-    todoList:[],
-  };
-
-},
-mounted() {
-  setInterval( () => {
-  // console.log(this);
-  // this.count++;
-  },1000)
+  data() {
+    return {
+      name: 'Korneel Eeckhout',
+      count: 1,
+      containerClasses: 'red',
+      newTodo: '',
+      todoList: [],
+    };
   },
-  methods:
-  {
-    addOne(){
-      this.count++
+  mounted() {
+    setInterval(() => {
+      // this.count++;
+      // if (this.containerClasses === 'red') {
+      //   this.containerClasses = 'blue';
+      // } else {
+      //   this.containerClasses = 'red';
+      // }
+    }, 1000);
+  },
+  methods: {
+    addOne() {
+      this.count++;
     },
-    addTodo(){
-      this.t
-    }
-  }
-}
-Vue.createApp(App).mount('#app')
+    addTodo() {
+      this.todoList.push(this.newTodo);
+      console.log(this.todoList);
+    },
+  },
+};
+
+Vue.createApp(App).mount('#app');

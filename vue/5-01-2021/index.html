@@ -12,17 +12,31 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/water.css@2/out/dark.css"
     />
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <div id="app">
+      <p>Hello {{ name }}</p>
+      <p :class="count % 2 === 0 ? 'red' : 'blue'">Count: {{ count }}</p>
+      <input type="text" v-model="name" />
+      <button @click="addOne">Add 1</button>
 
+      <span v-if="count % 2 === 0">Even getal</span>
 
-    <div id="app" :class="containerClasses">
-      <p>hello {{ name }}</p>
-      <p :class= "count % 2 === 0 ? 'red' : 'blue'" >count {{ count }}</p>
-      <input type="text" v-model= "name">
-      <button @click ="addOne" >add 1</button>
-      <span v-if =  "count % 2 === 0" > even getal</span>
+      <div>
+        <input type="text" v-model="newTodo" />
+        <button @click="addTodo">Add todo</button>
+        <ul>
+          <li v-for="(todoItem, index) in todoList" :key="'ul_' + index">
+            {{ todoItem }}
+          </li>
+        </ul>
+        <div v-for="(todoItem, index) in todoList" :key="'div_' + index">
+          <p>{{index}} {{ todoItem }} <button>Done</button></p>
+        </div>
+      </div>
     </div>
+
     <script src="https://unpkg.com/vue@next"></script>
     <script src="main.js"></script>
   </body>
