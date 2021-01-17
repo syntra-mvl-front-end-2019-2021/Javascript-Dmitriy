@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="app">
     <div class="screen">
       <div class="screen__line-one">
         {{ lineOne === null ? "" : lineOne }} <span>{{ symbol }}</span>
@@ -8,43 +8,69 @@
     </div>
     <div class="buttons">
       <div class="buttons__numbers">
-        <button type="button" class="buttons__number" @click="addNumber(0)">
-          0
-        </button>
-        <button type="button" class="buttons__number" @click="addNumber(1)">
-          1
-        </button>
-        <button type="button" class="buttons__number" @click="addNumber(2)">
-          2
-        </button>
-        <button type="button" class="buttons__number" @click="addNumber(3)">
-          3
-        </button>
-        <button type="button" class="buttons__number" @click="addNumber(4)">
-          4
-        </button>
-        <button type="button" class="buttons__number" @click="addNumber(5)">
-          5
-        </button>
-        <button type="button" class="buttons__number" @click="addNumber(6)">
-          6
-        </button>
-        <button type="button" class="buttons__number" @click="addNumber(7)">
-          7
-        </button>
-        <button type="button" class="buttons__number" @click="addNumber(8)">
-          8
-        </button>
-        <button type="button" class="buttons__number" @click="addNumber(9)">
-          9
-        </button>
+        <div class="fourthRow">
+          <button type="button" class="buttons__number" @click="addNumber(7)">
+            7
+          </button>
+          <button type="button" class="buttons__number" @click="addNumber(8)">
+            8
+          </button>
+          <button type="button" class="buttons__number" @click="addNumber(9)">
+            9
+          </button>
+        </div>
+        <div class="thirdRow">
+          <button type="button" class="buttons__number" @click="addNumber(4)">
+            4
+          </button>
+          <button type="button" class="buttons__number" @click="addNumber(5)">
+            5
+          </button>
+          <button type="button" class="buttons__number" @click="addNumber(6)">
+            6
+          </button>
+        </div>
+        <div class="secondRow">
+          <button type="button" class="buttons__number" @click="addNumber(1)">
+            1
+          </button>
+          <button type="button" class="buttons__number" @click="addNumber(2)">
+            2
+          </button>
+          <button type="button" class="buttons__number" @click="addNumber(3)">
+            3
+          </button>
+        </div>
+        <div class="firstRow">
+          <button class="buttons__math-item" @click="clearAll()">C</button>
+
+          <button type="button" class="buttons__number" @click="addNumber(0)">
+            0
+          </button>
+          <button class="buttons__math-item" @click="calculate()">=</button>
+        </div>
       </div>
       <div class="buttons__math">
-        <button class="buttons__math-item" @click="selectSymbol('+')">+</button>
-        <button class="buttons__math-item" @click="selectSymbol('-')">-</button>
-        <button class="buttons__math-item" @click="selectSymbol('/')">/</button>
-        <button class="buttons__math-item" @click="selectSymbol('*')">*</button>
-        <button class="buttons__math-item">=</button>
+        <div>
+          <button class="buttons__math-item" @click="selectSymbol('+')">
+            +
+          </button>
+        </div>
+        <div>
+          <button class="buttons__math-item" @click="selectSymbol('-')">
+            -
+          </button>
+        </div>
+        <div>
+          <button class="buttons__math-item" @click="selectSymbol('/')">
+            /
+          </button>
+        </div>
+        <div>
+          <button class="buttons__math-item" @click="selectSymbol('*')">
+            *
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -54,19 +80,18 @@
 export default {
   data() {
     return {
-      lineOne: null,
+      lineOne: "",
       lineTwo: null,
       symbol: "",
     };
   },
   methods: {
     addNumber(number) {
-      if (this.lineTwo === null) {
+      if (this.lineTwo == 0) {
         this.lineTwo = number;
         return;
       }
-
-      this.lineTwo += "" + number;
+      this.lineTwo = "" + number;
     },
     calculate() {
       if (
@@ -79,17 +104,93 @@ export default {
     },
 
     selectSymbol(symbol) {
-      this.lineOne = this.lineTwo;
-      this.symbol = symbol;
+      // this.lineOne = this.lineTwo;
+      // this.symbol = symbol;
+      // this.lineTwo = null;
+    this.lineOne = 
+    
+      // this.lineOne +=  this.lineTwo;
+       this.lineOne+=  this.lineTwo + symbol
+      //  console.log(typeof this.lineOne)
+      // this.symbol = symbol;
+      this.lineTwo = 0;
+    },
+
+    clearAll() {
+      this.lineOne = "";
       this.lineTwo = null;
+      this.symbol = "";
     },
   },
 };
 </script>
 
 <style>
-body{
-  background: black;
+html {
+  height: 100%;
+}
+body {
+  height: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-content: center;
 }
 
+.buttons {
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  text-align: right;
+  width: 430px;
+  padding: 1rem;
+  background-color: rgba(0, 0, 0, 0.15);
+}
+.buttons__math {
+  display: block;
+}
+.app {
+  margin-top: 150px;
+}
+
+.buttons__number,
+.buttons__math-item {
+  height: 60px;
+  width: 100px;
+  margin: 2px;
+  background-color: white;
+  border: white;
+}
+.screen {
+  padding: 1rem;
+  font-size: 3rem;
+  font-weight: bold;
+  width: 430px;
+  height: 100px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: right;
+  text-align: right;
+  /* background-color: rgba(128, 128, 128, 0.178); */
+  background-color: rgba(0, 0, 0, 0.082);
+  border-top-right-radius: 40px;
+}
+.screen__line-one {
+  font-size: 2rem;
+}
 </style>
+/**
+ * [x] styling
+ * [ ] product
+ * [ ] minus
+ * [ ] divide
+ * [ ] root
+ * [ ] power
+ * [ ] backspace
+ * [ ] clear
+ * [ ] history
+ * [ ] make line two input field
+ */
