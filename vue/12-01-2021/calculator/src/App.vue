@@ -2,9 +2,9 @@
   <div class="app">
     <div class="screen">
       <div class="screen__line-one">
-        {{ lineOne === null ? "" : lineOne }} <span>{{ symbol }}</span>
+        {{ lineOne }} <span>{{ symbol }}</span>
       </div>
-      <div class="screen__line-two">{{ lineTwo === null ? "" : lineTwo }}</div>
+      <div class="screen__line-two">{{ lineTwo }}</div>
     </div>
     <div class="buttons">
       <div class="buttons__numbers">
@@ -62,13 +62,13 @@
           </button>
         </div>
         <div>
-          <button class="buttons__math-item" @click="selectSymbol('/')">
-            /
+          <button class="buttons__math-item" @click="selectSymbol('%')">
+            %
           </button>
         </div>
         <div>
-          <button class="buttons__math-item" @click="selectSymbol('*')">
-            *
+          <button class="buttons__math-item" @click="selectSymbol('x')">
+            x
           </button>
         </div>
       </div>
@@ -77,43 +77,100 @@
 </template>
 
 <script>
+// export default {
+
+//   data() {
+//     return {
+//       lineOne: null,
+//       lineTwo: null,
+//       symbol: '',
+//       equals:null,
+//     };
+//   },
+//   methods: {
+//     addNumber(number) {
+//       if (this.lineTwo === null) {
+//         this.lineTwo = number;
+//         return;
+//       }
+
+//       this.lineTwo = parseInt('' + this.lineTwo + number);
+//       console.log(this.lineTwo)    },
+//     sum() {
+//       return this.lineOne + this.lineTwo;
+//     },
+    // calculate() {
+    //   if (
+    //     this.lineOne === null ||
+    //     this.lineTwo === null ||
+    //     this.symbol === ''
+    //   ) {
+    //     return;
+    //   }
+
+    //   switch (this.symbol) {
+    //     case '+':
+    //       this.lineTwo = this.sum();
+    //   }
+
+    //   this.lineOne = null;
+    //   this.symbol = '';
+    // },
+    // selectSymbol(symbol) {
+    //   this.calculate();
+
+    //   this.lineOne = this.lineTwo;
+    //   this.symbol = symbol;
+    //   this.lineTwo = 0;
+    // }
+//   },
+// };
+
 export default {
   data() {
     return {
       lineOne: "",
       lineTwo: null,
       symbol: "",
+      equals: null,
     };
   },
   methods: {
     addNumber(number) {
-      if (this.lineTwo == 0) {
+      if (
+        this.lineTwo === this.equals ||this.lineTwo == null) {
         this.lineTwo = number;
         return;
       }
-      this.lineTwo = "" + number;
+      this.lineTwo += "" + number;
     },
     calculate() {
       if (
-        this.lineOne === null ||
+        this.equals === null ||
         this.lineTwo === null ||
-        this.symbol === ""
+         this.lineOne === "" ||
+         this.symbol === ""
       ) {
         return;
       }
-    },
+       switch (this.symbol) {
+        case '+':
+          this.lineTwo = this.sum();
+      }
 
+      this.lineOne = "";
+      this.symbol = "";
+    },
     selectSymbol(symbol) {
       // this.lineOne = this.lineTwo;
       // this.symbol = symbol;
-      // this.lineTwo = null;
-    this.lineOne = 
-    
-      // this.lineOne +=  this.lineTwo;
-       this.lineOne+=  this.lineTwo + symbol
-      //  console.log(typeof this.lineOne)
-      // this.symbol = symbol;
-      this.lineTwo = 0;
+    this.calculate() 
+       this.lineOne +=  this.lineTwo + symbol
+       console.log(this.lineOne)
+      this.equals += parseInt(this.lineTwo);
+      this.lineTwo =  this.equals;
+             console.log(this.lineTwo)
+
     },
 
     clearAll() {
