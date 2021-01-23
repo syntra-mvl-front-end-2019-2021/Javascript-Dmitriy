@@ -1,5 +1,5 @@
 {
-  "name": "test",
+  "name": "quiz",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -26,7 +26,7 @@
       "node": true
     },
     "extends": [
-      "plugin:vue/vue3-recommended",
+      "plugin:vue/vue3-essential",
       "eslint:recommended"
     ],
     "parserOptions": {
