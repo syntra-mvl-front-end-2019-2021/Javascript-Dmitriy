@@ -2,13 +2,16 @@
   <div>
     <div class="quizContainer">
       <div class="card-container">
-        <div class="card" v-bind:style='{"transform": card? "rotateY(180deg)":"none" }'>
+        <div class="card" 
+        v-bind:style='{"transform": card? "rotateY(180deg)":"none" }'
+        v-for="question in questionArr" :key="question.id">
       
-           <figure class="front">
-            <h1>answer</h1>
-          </figure>
-             <figure class="back">
-            <h1>question</h1>
+        
+             <figure class="front" >
+            <h1>{{question.question}}</h1>
+          </figure>  
+           <figure class="back">
+              <h1>{{question.correct_answer}}</h1>
           </figure>
         </div>
       </div>
@@ -21,15 +24,25 @@
 </template>
 
 <script>
+  import axios from 'axios'
+
 export default {
   name: "App",
-  components: {
-  
-  },
   data() {
     return {
         card: true,
+        questionArr:[],
     };
+  },
+  mounted: function() {
+    axios.get('https://opentdb.com/api.php?amount=50&difficulty=medium&type=boolean')
+    .then(response => 
+    {
+      this.questionArr = response.data
+      console.log(response.data)})
+    .catch(error =>{
+      console.error(error)
+    })
   },
   methods: {
    rotate: function(){
@@ -45,6 +58,7 @@ export default {
 body,
 html {
   height: 100%;
+  margin: 0;
 }
 div {
   display: flex;
@@ -79,7 +93,7 @@ div {
 
     }
 
-.back{
+.front{
   transform:rotateY(180deg);
 }
 
