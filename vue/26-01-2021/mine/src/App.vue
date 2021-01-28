@@ -32,12 +32,14 @@
           </p>
         </header>
         <div class="highlights">
-        <Highlights
-        v-for="card in cards" 
-        :key="card.id" 
-        :icon="card.icon"
-        :title="card.title"
-        :text="card.text" /></div>
+          <Highlights
+            v-for="card in cards"
+            :key="card.id"
+            :icon="card.icon"
+            :title="card.title"
+            :text="card.text"
+          />
+        </div>
       </div>
     </section>
 
@@ -69,13 +71,14 @@
           </p>
         </header>
         <div class="testimonials">
-             <testimonials
-        v-for="people in Testimonials" 
-        :key="people.id" 
-        :src="people.src"
-        :name="people.name"
-        :text="people.text"
-        :corp="people.corp" />
+          <Testimonials
+            v-for="people in testimonials"
+            :key="people.id"
+            :src="people.src"
+            :name="people.name"
+            :text="people.text"
+            :corp="people.corp"
+          />
         </div>
       </div>
     </section>
@@ -140,78 +143,82 @@ import Testimonials from "@/components/Testimonials";
 export default {
   name: "App",
   components: {
-   Header,
-   Highlights,
-   Testimonials 
-   },
+    Header,
+    Highlights,
+    Testimonials,
+  },
   data() {
     return {
-      cards: [     
+      cards: [
         {
-          id:1,
+          id: 1,
           icon: "  fa-vcard-o",
           title: "Feugiat consequat",
-          text: 
+          text:
             " Nunc lacinia ante nunc ac lobortis ipsum. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus.",
-       } ,  
+        },
         {
           id: 2,
           icon: " fa-files-o",
           title: "Feugiat consequat",
-          text: 
+          text:
             " Nunc lacinia ante nunc ac lobortis ipsum. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus.",
         },
         {
           id: 3,
           icon: " fa-floppy-o",
           title: "Feugiat consequat",
-          text: 
+          text:
             " Nunc lacinia ante nunc ac lobortis ipsum. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus.",
         },
         {
           id: 4,
           icon: " fa-line-chart",
           title: "Interdum gravida",
-          text: 
+          text:
             " Nunc lacinia ante nunc ac lobortis ipsum. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus.",
         },
         {
           id: 5,
           icon: " fa-paper-plane-o",
           title: "Feugiat consequat",
-          text: 
+          text:
             " Nunc lacinia ante nunc ac lobortis ipsum. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus.",
         },
         {
           id: 6,
           icon: " fa-qrcode",
           title: "Accumsan viverra",
-          text: 
+          text:
             "Nunc lacinia ante nunc ac lobortis ipsum. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus.",
-        }
-        ],
-      Testimonials:[
-        {id:1, 
-        text:'Nunc lacinia ante nunc ac lobortis ipsum. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus.',
-        name:"Jane Doe", 
-        corp:'CEO - ABC Inc.',
-         src:"/img/pic01.2e72e89a.jpg",},
-        {id:2, 
-        text:'Nunc lacinia ante nunc ac lobortis ipsum. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus.',
-        name:"John Doe", 
-        corp:'CEO - ABC Inc.',
-        src:"/img/pic02.80a19663.jpg",},
-        {id:3, 
-        text:'Nunc lacinia ante nunc ac lobortis ipsum. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus.',
-        name:"Janet Smith", 
-        corp:'CEO - ABC Inc.',
-        src:"/img/pic03.5096fe30.jpg"},
-      ]
-    
-     
-      
-       
-    
+        },
+      ],
+      testimonials: [
+        {
+          id: 1,
+          text:
+            "Nunc lacinia ante nunc ac lobortis ipsum. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus.",
+          name: "Jane Doe",
+          corp: "CEO - ABC Inc.",
+          src: "pic01.jpg",
+        },
+        {
+          id: 2,
+          text:
+            "Nunc lacinia ante nunc ac lobortis ipsum. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus.",
+          name: "John Doe",
+          corp: "CEO - ABC Inc.",
+          src: "pic02.jpg",
+        },
+        {
+          id: 3,
+          text:
+            "Nunc lacinia ante nunc ac lobortis ipsum. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus.",
+          name: "Janet Smith",
+          corp: "CEO - ABC Inc.",
+          src: "pic03.jpg",
+        },
+      ],
     };
   },
 };
